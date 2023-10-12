@@ -152,4 +152,4 @@ const Switcher: FC<Props> = ({ color = 'primary', href, rowsPerPage, page, total
   return null
 }
 
-export default Pagination
+export default Switcher
