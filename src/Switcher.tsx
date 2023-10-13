@@ -18,25 +18,33 @@ const Switcher: FC<IProps> = ({
   readOnly,
   onChange = () => {},
   checked = false
-}) => (
-  <div data-component="Switcher" className={styles.switcherColor}>
-    <label className={styles.switcherLabel}>
-      <input
-        type="checkbox"
-        onChange={onChange}
-        checked={checked}
-        readOnly={readOnly}
-        className={styles.switcherInput(styles[color])}
-      />
-      {type === 'round' ? (
-        <span className={styles.roundSpan} />
-      ) : (
-        <span className={styles.squareSpan} />
-      )}
-    </label>
-    &nbsp;
-    <span className={styles.switcherText}>{label}</span>
-  </div>
-)
+}) => {
+  const inputClasses = [
+    styles.switcherInput,
+    styles[color],
+    checked ? 'bg-green-600' : '',
+    checked ? 'translate-x-6' : ''
+  ].join(' ')
+  const spanClasses =
+    type === 'round'
+      ? [styles.roundSpan, checked ? 'bg-green-600' : ''].join(' ')
+      : styles.squareSpan
+  return (
+    <div data-component="Switcher" className={styles.switcherColor}>
+      <label className={styles.switcherLabel}>
+        <input
+          type="checkbox"
+          onChange={onChange}
+          checked={checked}
+          readOnly={readOnly}
+          className={inputClasses}
+        />
+        <span className={spanClasses} />
+      </label>
+      &nbsp;
+      <span className={styles.switcherText}>{label}</span>
+    </div>
+  )
+}
 
 export default Switcher
