@@ -3,9 +3,9 @@ import cx from '@architecturex/utils.cx'
 export const styles = {
   paginationList: 'flex items-center justify-center mt-4',
   li: 'm-1',
-  switcherColor: (color: string) => ` ${color} inline-block text-4xl my-7 `,
+  switcherColor: ' inline-block text-4xl my-7 ',
   switcherLabel: 'relative inline-block w-16 h-8 ',
-  switcherText: ' px-4 text-base text-gray-700 ',
+  switcherText: (color: string) => ` ${color} px-4 text-base text-gray-700 `,
   switcherInput: ' opacity-0 w-0 h-0 checked:bg-green-600 focus:shadow checked:translate-x-6 ',
   roundSpan: ' rounded-3xl before: rounded-xl ',
   squareSpan:
