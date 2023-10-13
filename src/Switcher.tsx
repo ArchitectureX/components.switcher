@@ -26,7 +26,7 @@ const Switcher: FC<IProps> = ({
         onChange={onChange}
         checked={checked}
         readOnly={readOnly}
-        className={styles.switcherInput}
+        className={styles.switcherInput(styles[color])}
       />
       {type === 'round' ? (
         <span className={styles.roundSpan} />
@@ -35,7 +35,7 @@ const Switcher: FC<IProps> = ({
       )}
     </label>
     &nbsp;
-    <span className={styles.switcherText(styles[color])}>{label}</span>
+    <span className={styles.switcherText}>{label}</span>
   </div>
 )
 
