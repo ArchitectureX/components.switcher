@@ -3,14 +3,18 @@ import cx from '@architecturex/utils.cx'
 export const styles = {
   paginationList: 'flex items-center justify-center mt-4',
   li: 'm-1',
-  switcherColor: ' inline-block text-4xl my-7 ',
+  switcherMain: ' inline-block my-7 leading-9 ',
   switcherLabel: 'relative inline-block w-16 h-8 ',
   switcherText: ' px-4 text-base text-gray-700 ',
-  switcherInput: (color: string) =>
-    ` ${color} opacity-0 w-0 h-0 checked:bg-green-600 focus:shadow checked:translate-x-6 `,
-  roundSpan: ' rounded rounded-3xl before:rounded-xl checked:bg-green-600 focus:',
-  squareSpan:
-    "absolute cursor-pointer top-0 left-0 right-0 bottom-0 bg-gray-500 duration-300 before:absolute before:content-[''] before:h-6 before:w-6 before:left-1 before:bottom-1 before:bg-white before:duration-300 ",
+  switcherInput: 'w-0 h-0 z-0 hidden invisible',
+  roundSpan: (color: string) =>
+    `rounded rounded-full absolute cursor-pointer top-0 left-0 right-0 bottom-0 ${color} transition duration-300 `,
+  roundSpanBefore: (color: string) =>
+    `rounded rounded-full absolute cursor-pointer top-0 left-0 right-0 bottom-0 ${color} transition duration-300 before:absolute before:rounded-full before:h-6 before:w-6 before:left-1 before:bottom-1 before:bg-white before:transition before:duration-300 `,
+  squareSpan: (color: string) =>
+    `absolute cursor-pointer top-0 left-0 right-0 bottom-0 ${color} transition duration-300  `,
+  squareSpanBefore: (color: string) =>
+    `absolute cursor-pointer top-0 left-0 right-0 bottom-0 ${color} transition duration-300 before:absolute before:h-6 before:w-6 before:left-1 before:bottom-1 before:bg-white before:transition before:duration-300 `,
   primary: 'bg-blue-500',
   secondary: 'bg-gray-500',
   danger: 'bg-red-500',

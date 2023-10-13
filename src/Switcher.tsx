@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FC } from 'react'
+import React, { ChangeEvent, FC, useState } from 'react'
 
 import { styles } from './styles'
 
@@ -15,28 +15,34 @@ const Switcher: FC<IProps> = ({
   color = 'primary',
   label = '',
   type,
-  readOnly,
   onChange = () => {},
   checked = false
 }) => {
-  const inputClasses = [
-    styles.switcherInput,
-    styles[color],
-    checked ? 'bg-green-600' : '',
-    checked ? 'translate-x-6' : ''
-  ].join(' ')
+  const [isChecked, setIsChecked] = useState(checked)
+  const inputClasses = [styles.switcherInput, !isChecked ? 'translate-x-10' : ''].join(' ')
+
+  console.log('Is checked ' + isChecked)
+
+  const handleChecked = (e: any) => {
+    console.log('Clicked', isChecked)
+    setIsChecked(!isChecked)
+    onChange(e)
+  }
   const spanClasses =
     type === 'round'
-      ? [styles.roundSpan, checked ? 'bg-green-600' : ''].join(' ')
-      : styles.squareSpan
+      ? isChecked
+        ? styles.roundSpan(styles[color])
+        : styles.roundSpanBefore(styles[color])
+      : isChecked
+      ? styles.squareSpan(styles[color])
+      : styles.squareSpanBefore(styles[color])
   return (
-    <div data-component="Switcher" className={styles.switcherColor}>
+    <div data-component="Switcher" className={styles.switcherMain}>
       <label className={styles.switcherLabel}>
         <input
           type="checkbox"
-          onChange={onChange}
-          checked={checked}
-          readOnly={readOnly}
+          onChange={handleChecked}
+          checked={isChecked}
           className={inputClasses}
         />
         <span className={spanClasses} />
