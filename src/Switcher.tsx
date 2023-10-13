@@ -19,14 +19,14 @@ const Switcher: FC<IProps> = ({
   onChange = () => {},
   checked = false
 }) => (
-  <div data-component="Switcher" className={styles.switcherColor(styles[color])}>
+  <div data-component="Switcher" className={styles.switcherColor}>
     <label className={styles.switcherLabel}>
       <input
         type="checkbox"
         onChange={onChange}
         checked={checked}
         readOnly={readOnly}
-        className={styles.switcherInput}
+        className={styles.switcherInput(styles[color])}
       />
       {type === 'round' ? (
         <span className={styles.roundSpan} />
