@@ -35,7 +35,7 @@ const Switcher: FC<IProps> = ({
       )}
     </label>
     &nbsp;
-    <text className={styles.switcherText}>{label}</text>
+    <span className={styles.switcherText}>{label}</span>
   </div>
 )
 
