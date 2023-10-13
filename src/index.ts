@@ -1,2 +1,2 @@
-export { default as Pagination } from './Pagination'
+export { default as Switcher } from './Switcher'
 export { tailwindClasses } from './styles'
