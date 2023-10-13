@@ -1,12 +1,10 @@
 import cx from '@architecturex/utils.cx'
 
 export const styles = {
-  paginationList: 'flex items-center justify-center mt-4',
-  li: 'm-1',
   switcherMain: ' inline-block my-7 leading-9 ',
   switcherLabel: 'relative inline-block w-16 h-8 ',
   switcherText: ' px-4 text-base text-gray-700 ',
-  switcherInput: 'w-0 h-0 z-0 hidden invisible',
+  switcherInput: 'w-0 h-0 z-0 ',
   roundSpan: (color: string) =>
     `rounded rounded-full absolute cursor-pointer top-0 left-0 right-0 bottom-0 ${color} transition duration-300 `,
   roundSpanBefore: (color: string) =>

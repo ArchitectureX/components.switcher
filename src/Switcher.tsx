@@ -21,10 +21,7 @@ const Switcher: FC<IProps> = ({
   const [isChecked, setIsChecked] = useState(checked)
   const inputClasses = [styles.switcherInput, !isChecked ? 'translate-x-10' : ''].join(' ')
 
-  console.log('Is checked ' + isChecked)
-
   const handleChecked = (e: any) => {
-    console.log('Clicked', isChecked)
     setIsChecked(!isChecked)
     onChange(e)
   }
