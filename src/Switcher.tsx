@@ -1,5 +1,4 @@
-import React, { ChangeEvent, FC, useState } from 'react'
-
+import { ChangeEvent, FC, useState } from 'react'
 import { styles } from './styles'
 
 export type IProps = {
@@ -19,30 +18,33 @@ const Switcher: FC<IProps> = ({
   checked = false
 }) => {
   const [isChecked, setIsChecked] = useState(checked)
-  const inputClasses = [styles.switcherInput, !isChecked ? 'translate-x-10' : ''].join(' ')
 
   const handleChecked = (e: any) => {
     setIsChecked(!isChecked)
     onChange(e)
   }
-  const spanClasses =
+
+  const sliderStyles = [
+    styles.switcherSlider,
+    styles.sliderStyle,
+    isChecked ? 'translate-x-6' : 'translate-x-0'
+  ].join(' ')
+  const spanStyles =
     type === 'round'
-      ? isChecked
-        ? styles.roundSpan(styles[color])
-        : styles.roundSpanBefore(styles[color])
-      : isChecked
-      ? styles.squareSpan(styles[color])
-      : styles.squareSpanBefore(styles[color])
+      ? [styles.roundSwitchStyles, styles[color]].join(' ')
+      : [styles.squareSwitchStyles, styles[color]].join(' ')
+
   return (
-    <div data-component="Switcher" className={styles.switcherMain}>
+    <div data-component="Switcher1" className={styles.switcherContainer}>
       <label className={styles.switcherLabel}>
         <input
-          type="checkbox"
+          type={'checkbox'}
           onChange={handleChecked}
           checked={isChecked}
-          className={inputClasses}
+          className={styles.switcherInput}
         />
-        <span className={spanClasses} />
+        <span className={sliderStyles} />
+        <span className={spanStyles} />
       </label>
       &nbsp;
       <span className={styles.switcherText}>{label}</span>
