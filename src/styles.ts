@@ -5,7 +5,7 @@ interface StylesMapping {
 }
 export const styles: StylesMapping = {
   switcherContainer: 'relative inline-block my-8 leading-9',
-  switcherLabel: 'relative inline-block w-16 h-8',
+  switcherLabel: 'relative inline-block w-16 h-4',
   switcherText: 'px-4 text-base text-gray-700',
   switcherInput: 'hidden',
   switcherSlider: 'absolute cursor-pointer top-0 left-0 right-0 bottom-0',
