@@ -27,13 +27,13 @@ const Switcher: FC<IProps> = ({
   const sliderStyles = [
     styles.switcherSlider,
     styles.sliderStyle,
-    isChecked ? 'translate-x-6' : 'translate-x-0'
+    type === 'round' ? 'rounded-3x1 rounded-full' : '',
+    isChecked ? 'translate-x-8' : 'translate-x-0'
   ].join(' ')
   const spanStyles =
     type === 'round'
       ? [styles.roundSwitchStyles, styles[color]].join(' ')
       : [styles.squareSwitchStyles, styles[color]].join(' ')
-
   return (
     <div data-component="Switcher1" className={styles.switcherContainer}>
       <label className={styles.switcherLabel}>
