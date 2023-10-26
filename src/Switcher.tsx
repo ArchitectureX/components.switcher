@@ -1,7 +1,7 @@
 import { ChangeEvent, FC, useState } from 'react'
 import { styles } from './styles'
 
-export type IProps = {
+type Props = {
   color?: 'primary' | 'secondary' | 'danger' | 'warning' | 'success' | 'info' | 'dark' | 'light'
   label: string
   type?: string
@@ -10,10 +10,9 @@ export type IProps = {
   checked?: boolean
 }
 
-const Switcher: FC<IProps> = ({
+const Switcher: FC<Props> = ({
   color = 'primary',
-  label = '',
-  type,
+  type = 'round',
   onChange = () => {},
   checked = false
 }) => {
@@ -30,15 +29,17 @@ const Switcher: FC<IProps> = ({
     type === 'round' ? 'rounded-3x1 rounded-full' : '',
     isChecked ? 'translate-x-8' : 'translate-x-1'
   ].join(' ')
+
   const spanStyles =
     type === 'round'
       ? [styles.roundSwitchStyles, isChecked ? styles[color] : 'bg-gray-500'].join(' ')
       : [styles.squareSwitchStyles, isChecked ? styles[color] : 'bg-gray-500'].join(' ')
+
   return (
-    <div data-component="Switcher1" className={styles.switcherContainer}>
+    <div data-component="Switcher" className={styles.switcherContainer}>
       <label className={styles.switcherLabel}>
         <input
-          type={'checkbox'}
+          type="checkbox"
           onChange={handleChecked}
           checked={isChecked}
           className={styles.switcherInput}
@@ -46,8 +47,6 @@ const Switcher: FC<IProps> = ({
         <span className={sliderStyles} />
         <span className={spanStyles} />
       </label>
-      &nbsp;
-      <span className={styles.switcherText}>{label}</span>
     </div>
   )
 }

@@ -3,6 +3,7 @@ import cx from '@architecturex/utils.cx'
 interface StylesMapping {
   [key: string]: string
 }
+
 export const styles: StylesMapping = {
   switcherContainer: 'relative inline-block w-auto h-9',
   switcherLabel: 'relative inline-block w-16 h-6',
