@@ -36,7 +36,7 @@ const Switcher: FC<Props> = ({
 
   return (
     <div data-component="Switcher" className={styles.switcherContainer}>
-      <label className={styles.switcherLabel}>
+      <label className={styles.switcherLabel} style={{ width: '62px' }}>
         <input
           type="checkbox"
           onChange={handleChecked}
