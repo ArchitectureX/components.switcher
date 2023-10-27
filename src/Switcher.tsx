@@ -3,7 +3,6 @@ import { styles } from './styles'
 
 type Props = {
   color?: 'primary' | 'secondary' | 'danger' | 'warning' | 'success' | 'info' | 'dark' | 'light'
-  label: string
   type?: string
   readOnly?: boolean
   onChange?(e: ChangeEvent<HTMLInputElement>): void
