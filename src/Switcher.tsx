@@ -1,5 +1,4 @@
 import { ChangeEvent, FC, useState } from 'react'
-import { styles } from './styles'
 
 type Props = {
   color?: 'primary' | 'secondary' | 'danger' | 'warning' | 'success' | 'info' | 'dark' | 'light'
@@ -22,26 +21,40 @@ const Switcher: FC<Props> = ({
     onChange(e)
   }
 
+  const styles: any = {
+    primary: 'bg-blue-500',
+    secondary: 'bg-gray-500',
+    danger: 'bg-red-500',
+    warning: 'bg-yellow-500',
+    success: 'bg-green-500',
+    info: 'bg-blue-600',
+    dark: 'bg-gray-800',
+    light: 'bg-gray-300'
+  }
+
   const sliderStyles = [
-    styles.switcherSlider,
-    styles.sliderStyle,
+    `absolute cursor-pointer top-1 left-0 right-0 bottom-0 bg-gray-500 duration-300before:absolute before::content-[''] before:h-7 before:w-7 before:left-1 before:bottom-1 before:bg-white before:duration-300`,
+    'absolute cursor-pointer block w-6 h-6 bg-white shadow transform transition ease-in',
     type === 'round' ? 'rounded-3x1 rounded-full' : '',
     isChecked ? 'translate-x-8' : 'translate-x-1'
   ].join(' ')
 
   const spanStyles =
     type === 'round'
-      ? [styles.roundSwitchStyles, isChecked ? styles[color] : 'bg-gray-500'].join(' ')
-      : [styles.squareSwitchStyles, isChecked ? styles[color] : 'bg-gray-500'].join(' ')
+      ? [
+          'cursor-pointer block w-13 h-8 rounded-2xl',
+          isChecked ? styles[color] : 'bg-gray-500'
+        ].join(' ')
+      : ['cursor-pointer block w-13 h-8', isChecked ? styles[color] : 'bg-gray-500'].join(' ')
 
   return (
-    <div data-component="Switcher" className={styles.switcherContainer}>
-      <label className={styles.switcherLabel} style={{ width: '62px' }}>
+    <div data-component="Switcher" className="relative inline-block w-auto h-9">
+      <label className="relative inline-block w-16 h-6" style={{ width: '62px' }}>
         <input
           type="checkbox"
           onChange={handleChecked}
           checked={isChecked}
-          className={styles.switcherInput}
+          className="hidden w-0 h-0"
         />
         <span className={sliderStyles} />
         <span className={spanStyles} />
