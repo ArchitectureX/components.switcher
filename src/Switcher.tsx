@@ -1,4 +1,4 @@
-import { ChangeEvent, FC, useState } from 'react'
+export default () => `import { ChangeEvent, FC, useState } from 'react'
 
 type Props = {
   color?: 'primary' | 'secondary' | 'danger' | 'warning' | 'success' | 'info' | 'dark' | 'light'
@@ -33,7 +33,7 @@ const Switcher: FC<Props> = ({
   }
 
   const sliderStyles = [
-    `absolute cursor-pointer top-1 left-0 right-0 bottom-0 bg-gray-500 duration-300before:absolute before::content-[''] before:h-7 before:w-7 before:left-1 before:bottom-1 before:bg-white before:duration-300`,
+    'absolute cursor-pointer top-1 left-0 right-0 bottom-0 bg-gray-500 duration-300before:absolute before::content-[""] before:h-7 before:w-7 before:left-1 before:bottom-1 before:bg-white before:duration-300',
     'absolute cursor-pointer block w-6 h-6 bg-white shadow transform transition ease-in',
     type === 'round' ? 'rounded-3x1 rounded-full' : '',
     isChecked ? 'translate-x-8' : 'translate-x-1'
@@ -64,3 +64,4 @@ const Switcher: FC<Props> = ({
 }
 
 export default Switcher
+`
